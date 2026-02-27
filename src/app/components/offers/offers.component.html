@@ -1,0 +1,77 @@
+<section id="offers" class="py-20 bg-gradient-to-b from-[#141414] to-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 fade-in-section">
+      <span class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-semibold mb-4 tracking-wider uppercase">
+        Limited Offers
+      </span>
+      <h2 class="text-4xl sm:text-5xl font-black mb-4">
+        <span class="text-white">Irresistible </span>
+        <span class="gradient-text">Deals!</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto">
+        Grab these exclusive deals before they're gone!
+      </p>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="flex justify-center mb-14 fade-in-section">
+      <div class="glass-card rounded-2xl px-8 py-6 text-center">
+        <p class="text-orange-400 text-sm font-semibold tracking-wider uppercase mb-4">⏰ Offers Reset In</p>
+        <div class="flex items-center gap-4">
+          <div class="text-center">
+            <div class="countdown-digit text-4xl font-black gradient-text w-16">{{ pad(countdown.hours) }}</div>
+            <div class="text-gray-500 text-xs mt-1">Hours</div>
+          </div>
+          <div class="text-3xl font-black text-orange-500 countdown-digit">:</div>
+          <div class="text-center">
+            <div class="countdown-digit text-4xl font-black gradient-text w-16">{{ pad(countdown.minutes) }}</div>
+            <div class="text-gray-500 text-xs mt-1">Minutes</div>
+          </div>
+          <div class="text-3xl font-black text-orange-500 countdown-digit">:</div>
+          <div class="text-center">
+            <div class="countdown-digit text-4xl font-black gradient-text w-16">{{ pad(countdown.seconds) }}</div>
+            <div class="text-gray-500 text-xs mt-1">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offers Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (offer of offers; track offer.id) {
+        <div class="fade-in-section glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
+          <!-- Discount badge -->
+          <div class="relative p-6" [style.background]="offer.bgColor">
+            <div class="absolute top-4 right-4 bounce-badge">
+              <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
+                {{ offer.discount }}
+              </span>
+            </div>
+            <div class="text-5xl mb-3">{{ offer.emoji }}</div>
+            <span class="inline-block bg-white/10 text-gray-300 text-xs px-2 py-1 rounded-full mb-2">
+              {{ offer.badge }}
+            </span>
+            <h3 class="text-white font-bold text-lg leading-tight">{{ offer.title }}</h3>
+          </div>
+
+          <div class="p-5">
+            <p class="text-gray-400 text-sm mb-4">{{ offer.description }}</p>
+
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-gray-600 line-through text-sm">{{ offer.originalPrice }}</span>
+              <span class="text-orange-400 font-black text-xl">{{ offer.offerPrice }}</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-gray-500">📅 {{ offer.validUntil }}</span>
+              <button class="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-xs font-bold hover:opacity-90 transition-opacity">
+                Grab Now
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
