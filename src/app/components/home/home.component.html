@@ -1,0 +1,89 @@
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0f0f0f]">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f0f] via-[#1a0a00] to-[#0f0f0f] opacity-90"></div>
+
+  <!-- Radial glow effect -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-red-500/5 rounded-full blur-3xl"></div>
+
+  <!-- Floating emojis -->
+  @for (item of floatingEmojis; track item.emoji + item.left) {
+    <div class="float-emoji absolute text-4xl pointer-events-none select-none opacity-30 hidden lg:block"
+         [style.left]="item.left"
+         [style.top]="item.top"
+         [style.animation-delay]="item.delay"
+         [style.animation-duration]="item.duration">
+      {{ item.emoji }}
+    </div>
+  }
+
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto"
+       [class.opacity-0]="!titleVisible"
+       [class.opacity-100]="titleVisible"
+       style="transition: opacity 0.8s ease, transform 0.8s ease;"
+       [class.translate-y-8]="!titleVisible"
+       [class.translate-y-0]="titleVisible">
+
+    <!-- Tag line -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-orange-400 text-sm font-medium mb-6">
+      <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+      Mohali's #1 Youth Hangout
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+      <span class="gradient-text">Taste That Makes</span>
+      <br>
+      <span class="text-white">You </span><span class="gradient-text">Chatore!</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-gray-400 text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+      Mohali's Favorite Youth Hangout Spot —
+      <span class="text-orange-400 font-semibold">Authentic Flavors, Modern Vibes</span>
+    </p>
+
+    <!-- Stats -->
+    <div class="flex justify-center gap-8 mb-10 text-center">
+      <div>
+        <div class="text-2xl font-black gradient-text">500+</div>
+        <div class="text-gray-500 text-xs">Happy Customers</div>
+      </div>
+      <div class="w-px bg-orange-500/30"></div>
+      <div>
+        <div class="text-2xl font-black gradient-text">50+</div>
+        <div class="text-gray-500 text-xs">Menu Items</div>
+      </div>
+      <div class="w-px bg-orange-500/30"></div>
+      <div>
+        <div class="text-2xl font-black gradient-text">4.8★</div>
+        <div class="text-gray-500 text-xs">Rating</div>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button
+        (click)="scrollToSection('menu')"
+        class="group px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full font-bold text-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto">
+        🍕 Explore Menu
+        <span class="ml-2 group-hover:translate-x-1 inline-block transition-transform">→</span>
+      </button>
+      <button
+        (click)="scrollToSection('offers')"
+        class="group px-8 py-4 glass-card text-orange-400 rounded-full font-bold text-lg hover:bg-orange-500/20 hover:scale-105 transition-all duration-300 w-full sm:w-auto border border-orange-500/40">
+        🎉 View Offers
+        <span class="ml-2 group-hover:translate-x-1 inline-block transition-transform">→</span>
+      </button>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="mt-16 flex flex-col items-center gap-2 text-gray-600 animate-bounce">
+      <span class="text-xs tracking-widest">SCROLL DOWN</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </div>
+</section>
