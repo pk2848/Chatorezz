@@ -9,7 +9,7 @@ interface Offer {
   originalPrice: string;
   offerPrice: string;
   emoji: string;
-  bgClass: string;
+  bgColor: string;
   badge: string;
   validUntil: string;
 }
@@ -39,7 +39,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       originalPrice: '₹350',
       offerPrice: '₹245',
       emoji: '🎓',
-      bgClass: 'from-orange-500/20 to-red-500/20',
+      bgColor: 'linear-gradient(135deg, rgba(249,115,22,0.2), rgba(239,68,68,0.2))',
       badge: 'Most Popular',
       validUntil: 'Today Only'
     },
@@ -51,7 +51,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       originalPrice: '₹1200',
       offerPrice: '₹900',
       emoji: '👨‍👩‍👧‍👦',
-      bgClass: 'from-yellow-500/20 to-orange-500/20',
+      bgColor: 'linear-gradient(135deg, rgba(234,179,8,0.2), rgba(249,115,22,0.2))',
       badge: 'Best Value',
       validUntil: 'This Weekend'
     },
@@ -63,7 +63,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       originalPrice: '₹180',
       offerPrice: '₹144',
       emoji: '☕',
-      bgClass: 'from-amber-500/20 to-yellow-500/20',
+      bgColor: 'linear-gradient(135deg, rgba(245,158,11,0.2), rgba(234,179,8,0.2))',
       badge: 'Evening Special',
       validUntil: '5PM - 7PM Daily'
     },
@@ -75,7 +75,7 @@ export class OffersComponent implements OnInit, OnDestroy {
       originalPrice: '₹550',
       offerPrice: '₹358',
       emoji: '🥢',
-      bgClass: 'from-red-500/20 to-pink-500/20',
+      bgColor: 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(236,72,153,0.2))',
       badge: 'Limited Time',
       validUntil: 'Ends Soon'
     }

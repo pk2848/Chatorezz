@@ -20,10 +20,10 @@ export class HomeComponent implements OnInit {
     { emoji: '🍦', delay: '1.2s', duration: '3.4s', left: '60%', top: '10%' },
   ];
 
-  titleVisible = false;
+  titleVisible = true;
 
   ngOnInit() {
-    setTimeout(() => this.titleVisible = true, 300);
+    this.initScrollObserver();
   }
 
   scrollToSection(sectionId: string) {
@@ -33,5 +33,21 @@ export class HomeComponent implements OnInit {
       const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({ top, behavior: 'smooth' });
     }
+  }
+
+  private initScrollObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+    }, 100);
   }
 }

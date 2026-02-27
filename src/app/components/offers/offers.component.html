@@ -42,7 +42,7 @@
       @for (offer of offers; track offer.id) {
         <div class="fade-in-section glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
           <!-- Discount badge -->
-          <div class="relative p-6 bg-gradient-to-br" [ngClass]="offer.bgClass">
+          <div class="relative p-6" [style.background]="offer.bgColor">
             <div class="absolute top-4 right-4 bounce-badge">
               <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
                 {{ offer.discount }}
